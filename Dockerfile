@@ -1,4 +1,4 @@
-from node:alpine as build
+FROM node:alpine as build
 
 WORKDIR /app
 
@@ -10,10 +10,10 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:latest as prod
+from nginx:latest as prod
 
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist/nginx-angular-app/browser /usr/share/nginx/html
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
