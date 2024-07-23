@@ -1,1 +1,0 @@
-export const isEven = (a,b) => a % 2 === 0 && b % 2 === 0;
